@@ -46,10 +46,10 @@ class _DashboardState extends State<Dashboard> {
             fit: BoxFit.contain,
           ),
         ),
-        title: Center(
+        title: const Center(
           child: Text(
             "Books Store",
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: "Poppins-Light",
               fontWeight: FontWeight.bold, // Chữ đậm
               fontSize: 20,

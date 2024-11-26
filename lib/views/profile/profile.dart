@@ -131,12 +131,12 @@ class _ProfileState extends State<Profile> {
                       Text("$email",
                           style: const TextStyle(fontFamily: "Poppins-Light")),
                       const SizedBox(height: 8),
-                      Text(
+                      const Text(
                         "View My Profile",
                         style: TextStyle(
                           fontFamily: "Poppins-Light",
                           fontWeight: FontWeight.w600,
-                          color: const Color(0xFF33bf2e),
+                          color: Color(0xFF33bf2e),
                         ),
                       ),
                     ],
