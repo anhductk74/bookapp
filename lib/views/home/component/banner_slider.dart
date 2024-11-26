@@ -11,9 +11,10 @@ class BannerSlider extends StatefulWidget {
 
 class _BannerSliderState extends State<BannerSlider> {
   List<String> imgList = [
-    'https://cdn.9pay.vn/tin-tuc/blobid1691048380301-1691048393.jpg',
-    'https://d19ri4mdy82u9u.cloudfront.net/images/652c921ff57c484e17bb256a/132NgwLbjBuIOvkYShEV.jpeg',
-    'https://m.media-amazon.com/images/M/MV5BYWE2NDkyNjktNDA4MC00OTQ0LTg5ZDYtMjZlYmFhY2JjNGFkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
+    'https://theme.hstatic.net/1000237375/1000756917/14/slider_item_1_image.jpg?v=1593',
+    'https://theme.hstatic.net/1000237375/1000756917/14/slider_item_3_image.jpg?v=1593',
+    'https://theme.hstatic.net/1000237375/1000756917/14/slider_item_4_image.jpg?v=1593',
+    'https://theme.hstatic.net/1000237375/1000756917/14/slider_item_5_image.jpg?v=1593'
   ];
 
   @override

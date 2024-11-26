@@ -73,15 +73,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome, $userName'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: logout,
-          ),
-        ],
-      ),
       body: WillPopScope(
         onWillPop: onWillPop,
         child: _screens[

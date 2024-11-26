@@ -1,4 +1,5 @@
 import 'package:bookapp/services/CategoryService.dart';
+import 'package:bookapp/views/category/category_product.dart';
 import 'package:flutter/material.dart';
 import 'package:bookapp/models/category.dart';
 import '../../category/product_categories.dart';
@@ -61,7 +62,7 @@ class _CategoriesState extends State<Categories> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (builder) => const ProductCategories(
+                          builder: (builder) => const CategoriesList(
                             categoryId:
                                 '', // View All without a specific category
                             categoryName: 'All Categories',

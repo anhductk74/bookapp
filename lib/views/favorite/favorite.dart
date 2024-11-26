@@ -109,12 +109,11 @@ class _FavoriteState extends State<Favorite> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Favorites',
-          style: TextStyle(
-            fontFamily: "Poppins-Light",
-          ),
+          "Favorities",
+          style: TextStyle(fontFamily: "Poppins-Light"),
         ),
         backgroundColor: const Color(0xFF33bf2e),
+        centerTitle: true, // Centers the title
       ),
       body: isLoading
           ? const Center(
@@ -132,43 +131,50 @@ class _FavoriteState extends State<Favorite> {
                   itemBuilder: (context, index) {
                     return Card(
                       elevation: 5,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.network(
-                            favoriteProducts[index].image,
-                            height: 120,
-                            fit: BoxFit.cover,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              favoriteProducts[index].name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.network(
+                              favoriteProducts[index].image,
+                              height: 100, // Giới hạn chiều cao
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                favoriteProducts[index].name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text(
-                              "Rs.${favoriteProducts[index].price}",
-                              style: const TextStyle(
-                                color: Colors.green,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                "${favoriteProducts[index].price} VNĐ",
+                                style: const TextStyle(
+                                  color: Colors.green,
+                                ),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.remove_circle,
-                                color: Colors.red),
-                            onPressed: () {
-                              removeFavorite(favoriteProducts[index]
-                                  .id); // Xóa sản phẩm khỏi yêu thích
-                            },
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: IconButton(
+                                icon: const Icon(Icons.remove_circle,
+                                    color: Colors.red),
+                                onPressed: () {
+                                  removeFavorite(favoriteProducts[index].id);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

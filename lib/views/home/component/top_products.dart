@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
+import 'package:bookapp/views/category/ProductAll.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bookapp/views/product/view_individual_product.dart';
@@ -80,6 +80,18 @@ class _TopProductsState extends State<TopProducts> {
                   ),
                 ),
                 InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (builder) => const ProductsList(
+                          categoryId:
+                              '', // View All without a specific category
+                          categoryName: 'All Products',
+                        ),
+                      ),
+                    );
+                  },
                   child: const Row(
                     children: [
                       Text(
@@ -90,15 +102,15 @@ class _TopProductsState extends State<TopProducts> {
                           fontFamily: "Poppins-Light",
                         ),
                       ),
-                      Icon(Icons.arrow_forward_ios_outlined,
-                          size: 14, color: Colors.black45),
+                      SizedBox(width: 5),
+                      Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        size: 14,
+                        color: Colors.black45,
+                      ),
                     ],
                   ),
-                  onTap: () {
-                    // Handle "View All" action if needed
-                    // Navigate to a full list of products or details screen
-                  },
-                )
+                ),
               ],
             ),
           ),
@@ -175,7 +187,7 @@ class _TopProductsState extends State<TopProducts> {
                                   const SizedBox(height: 4),
                                   // Display price as string (no conversion)
                                   Text(
-                                    "Price.${product.price}",
+                                    "${product.price} VNĐ",
                                     style: const TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,

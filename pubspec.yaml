@@ -73,8 +73,9 @@ flutter:
   uses-material-design: true
   assets:
      - assets/logo.png
+     - assets/logo_icon.png
      - assets/get_started.png
-     - assets/avatar.png
+    #  - assets/avatar.png
      - assets/lock.png
      - assets/icons/house.svg
      - assets/icons/profile.svg

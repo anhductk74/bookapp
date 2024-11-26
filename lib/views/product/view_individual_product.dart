@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:bookapp/models/cart.dart';
 import 'package:bookapp/services/UserService.dart';
 import 'package:bookapp/services/CartService.dart'; // Thêm import CartService
-import 'package:bookapp/views/favorite/favorite.dart';
 import 'package:flutter/material.dart';
 import '../../models/product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -207,7 +206,7 @@ class _ViewIndividualProductState extends State<ViewIndividualProduct> {
                     ),
                   ),
                   Text(
-                    "Rs.${widget.product.price}",
+                    "${widget.product.price} VNĐ",
                     style: const TextStyle(
                       fontFamily: 'Poppins-Light',
                       fontSize: 20,
@@ -362,7 +361,7 @@ class _ViewIndividualProductState extends State<ViewIndividualProduct> {
                                             height: 10,
                                           ),
                                           Text(
-                                              "Rs.${similarProducts[index].price}"),
+                                              "${similarProducts[index].price} VNĐ"),
                                           const SizedBox(
                                             height: 10,
                                           ),

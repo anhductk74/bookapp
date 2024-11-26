@@ -6,10 +6,10 @@ class CheckoutScreen extends StatefulWidget {
   final List<Map<String, dynamic>> cartItems;
 
   const CheckoutScreen({
-    Key? key,
+    super.key,
     required this.userId,
     required this.cartItems,
-  }) : super(key: key);
+  });
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
@@ -47,6 +47,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         'address': _addressController.text,
         'total': calculateTotal(),
         'items': widget.cartItems,
+        'status': 'unconform',
         'timestamp': FieldValue.serverTimestamp(),
       });
 
@@ -147,11 +148,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: processPayment,
-                      child: const Text("Confirm and Pay"),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         textStyle: const TextStyle(fontSize: 18),
                       ),
+                      child: const Text("Confirm and Pay"),
                     ),
                   ],
                 ),

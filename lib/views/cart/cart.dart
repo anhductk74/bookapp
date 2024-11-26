@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:bookapp/services/UserService.dart';
+import 'package:bookapp/views/cart/PurchaseHistoryScreen.dart';
 import 'package:bookapp/views/cart/checkout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -125,7 +126,23 @@ class _CartState extends State<Cart> {
           "Cart",
           style: TextStyle(fontFamily: "Poppins-Light"),
         ),
+        centerTitle: true, // Centers the title
+
         backgroundColor: Colors.green,
+        actions: [
+          // Thêm một nút "Lịch sử mua hàng" ở phía bên phải AppBar
+          IconButton(
+            icon: const Icon(Icons.history), // Biểu tượng lịch sử
+            onPressed: () {
+              // Điều hướng tới màn hình lịch sử mua hàng khi nhấn vào nút
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PurchaseHistoryScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -182,7 +199,7 @@ class _CartState extends State<Cart> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        "Total: \$${calculateTotal().toStringAsFixed(2)}",
+                        "Total: ${calculateTotal().toStringAsFixed(2)} VNĐ",
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
