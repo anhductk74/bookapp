@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:bookapp/models/product.dart';
 import 'package:bookapp/views/category/component/product_card.dart';
 import 'package:bookapp/views/product/view_individual_product.dart';

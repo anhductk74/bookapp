@@ -39,8 +39,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     });
 
     try {
-      // Lưu thông tin đơn hàng vào Firestore
-      await FirebaseFirestore.instance.collection('orders').add({
+      // Create a new order document and get its orderId
+      var orderRef = await FirebaseFirestore.instance.collection('orders').add({
         'userId': widget.userId,
         'name': _nameController.text,
         'phone': _phoneController.text,
@@ -49,6 +49,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         'items': widget.cartItems,
         'status': 'unconform',
         'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      // Add the generated orderId to the order
+      await orderRef.update({
+        'orderId': orderRef.id, // Set the generated orderId
       });
 
       // Xóa sản phẩm khỏi giỏ hàng

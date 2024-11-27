@@ -10,7 +10,7 @@ import 'dart:developer';
 class ProductCard extends StatefulWidget {
   final Products product;
 
-  const ProductCard({Key? key, required this.product}) : super(key: key);
+  const ProductCard({super.key, required this.product});
 
   @override
   State<ProductCard> createState() => _ProductCardState();
